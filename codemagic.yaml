@@ -2,7 +2,6 @@ workflows:
 ios-workflow:
 name: iOS Workflow
 
-```
 environment:
   xcode: latest
 
@@ -16,4 +15,4 @@ scripts:
 artifacts:
   - ios/App/build/**/*.app
   - ios/App/**/*.ipa
-```
+
