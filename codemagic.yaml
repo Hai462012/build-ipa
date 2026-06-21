@@ -1,14 +1,19 @@
 workflows:
-  ios-workflow:
-    name: iOS Workflow
+ios-workflow:
+name: iOS Workflow
 
-    environment:
-      xcode: latest
+```
+environment:
+  xcode: latest
 
-    scripts:
-      - npm install
-      - chmod +x node_modules/.bin/cap
-      - npx cap sync ios
+scripts:
+  - npm install
+  - chmod +x node_modules/.bin/cap
+  - npx cap sync ios
+  - cd ios/App
+  - xcodebuild -workspace App.xcworkspace -scheme App -configuration Release -sdk iphoneos CODE_SIGNING_ALLOWED=NO
 
-    artifacts:
-      - ios/**/*.app
+artifacts:
+  - ios/App/build/**/*.app
+  - ios/App/**/*.ipa
+```
