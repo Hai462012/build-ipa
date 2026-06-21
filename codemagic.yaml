@@ -1,0 +1,15 @@
+workflows:
+  ios-workflow:
+    name: iOS Workflow
+    instance_type: mac_mini_m2
+
+    environment:
+      xcode: latest
+
+    scripts:
+      - npm install
+      - npm install @capacitor/ios
+      - npx cap sync ios
+
+    artifacts:
+      - ios/**/*.app
