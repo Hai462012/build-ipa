@@ -9,10 +9,9 @@ workflows:
       - npm install
       - chmod +x node_modules/.bin/cap
       - npx cap sync ios
-      - cd ios/App
-      - xcodebuild -workspace App.xcworkspace -scheme App -configuration Release -sdk iphoneos CODE_SIGNING_ALLOWED=NO
+      - cd ios
+      - xcodebuild -project App.xcodeproj -scheme App -configuration Release -sdk iphoneos CODE_SIGNING_ALLOWED=NO
 
     artifacts:
-      - ios/App/build/**/*.app
-      - ios/App/**/*.ipa
-
+      - ios/**/*.app
+      - ios/**/*.ipa
